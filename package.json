@@ -1,0 +1,23 @@
+{
+  "name": "Mechtecs/pizzabot",
+  "version": "0.0.1",
+  "description": "A pizzabot using machine learning.",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mechtecs/pizzabot"
+  },
+  "keywords": [
+    "node",
+    "heroku"
+  ],
+  "license": "GPL 3.0"
+}
