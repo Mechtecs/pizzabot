@@ -10,6 +10,10 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "restify" : "*",
+    "botbuilder" : "*",
+    "superagent" : "*",
+    "recastai" : "*"
   },
   "repository": {
     "type": "git",
