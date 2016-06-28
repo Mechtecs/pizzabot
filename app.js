@@ -65,7 +65,7 @@ bot.add('/pizza/topping', function (session) {
           .then(function (res) { session.send(res) })
           .catch(function (res) { session.send(res) });
       } else {
-        session.send('I could not understand you. Could you repeat it?');
+        session.send('I could not understand you. What do you want on your pizza?');
       }
     }
   })
@@ -88,7 +88,7 @@ bot.add('/pizza/size', function (session) {
           })
           .catch(function (res) { session.send(res) });
       } else {
-        session.send('I could not understand you. Could you repeat it?');
+        session.send('I could not understand you. We offer 22 cm, 26 cm and 38 cm big pizzas?');
       }
     }
   })
@@ -108,7 +108,7 @@ bot.add('/pizza/location', function (session) {
           .then(function (res) { session.send(res) })
           .catch(function (res) { session.send(res) });
       } else {
-        session.send('I could not understand you. Could you repeat it?');
+        session.send('I could not understand you. Where do you live?');
       }
     }
   })
@@ -128,7 +128,7 @@ bot.add('/pizza/time', function (session) {
           .then(function (res) { session.send(res) })
           .catch(function (res) { session.send(res) });
       } else {
-        session.send('I could not understand you. Could you repeat it?');
+        session.send('I could not understand you. When should we deliver it?');
       }
     }
   })
