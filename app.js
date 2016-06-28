@@ -33,7 +33,7 @@ bot.add('/', function (session) {
     } else {
       var intent = res.intent();
       console.log(intent);
-      if (intent == Iorder_food) {
+      if (intent == 'order_food') {
         Iorder_food(res)
           .then(function (res) {
             session.send(res)
