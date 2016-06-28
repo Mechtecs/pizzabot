@@ -3,7 +3,7 @@ var builder = require('botbuilder');
 var http = require('superagent');
 var recast = require('recastai')
 
-// init Microsoft bot connector
+// init Microsoft bot connector.catch
 var bot = new builder.BotConnectorBot({ appId: process.env.BOTCONNECTOR_APPID, appSecret: process.env.BOTCONNECTOR_APPSECRET });
 // process.env.BOTCONNECTOR_APPID
 
@@ -29,7 +29,30 @@ bot.add('/', function (session) {
 
   CLIENT.textRequest(input, function (res, err) {
     if (err) {
-      session.send('Das habe ich nicht verstanden.');
+      session.send('I have a headache ...');
+    } else {
+      var intent = res.intent();
+
+      if (intent == Iorder_food) {
+        Iorder_food(res)
+          .then(function (res) {
+            session.send(res)
+            session.beginDialog('/pizza/size');
+          })
+          .catch(function (res) { session.send(res) });
+      } else {
+        session.send('I could not understand you. Do you want to order pizza?');
+      }
+    }
+  })
+});
+bot.add('/pizza/topping', function (session) {
+
+  var input = session.message.text.toString().replace(/\0/g, '');
+
+  CLIENT.textRequest(input, function (res, err) {
+    if (err) {
+      session.send('I have a headache ...');
     } else {
       var intent = res.intent();
 
@@ -38,7 +61,67 @@ bot.add('/', function (session) {
           .then(function (res) { session.send(res) })
           .catch(function (res) { session.send(res) });
       } else {
-        session.send('Entschuldigung, ich konnte nicht verstehen, was Sie von mir wollen. Können Sie es erneut versuchen?');
+        session.send('I could not understand you. Could you repeat it?');
+      }
+    }
+  })
+});
+bot.add('/pizza/size', function (session) {
+
+  var input = session.message.text.toString().replace(/\0/g, '');
+
+  CLIENT.textRequest(input, function (res, err) {
+    if (err) {
+      session.send('I have a headache ...');
+    } else {
+      var intent = res.intent();
+
+      if (intent && INTENTS[intent]) {
+        INTENTS[intent](res)
+          .then(function (res) { session.send(res) })
+          .catch(function (res) { session.send(res) });
+      } else {
+        session.send('I could not understand you. Could you repeat it?');
+      }
+    }
+  })
+});
+bot.add('/pizza/location', function (session) {
+
+  var input = session.message.text.toString().replace(/\0/g, '');
+
+  CLIENT.textRequest(input, function (res, err) {
+    if (err) {
+      session.send('I have a headache ...');
+    } else {
+      var intent = res.intent();
+
+      if (intent && INTENTS[intent]) {
+        INTENTS[intent](res)
+          .then(function (res) { session.send(res) })
+          .catch(function (res) { session.send(res) });
+      } else {
+        session.send('I could not understand you. Could you repeat it?');
+      }
+    }
+  })
+});
+bot.add('/pizza/time', function (session) {
+
+  var input = session.message.text.toString().replace(/\0/g, '');
+
+  CLIENT.textRequest(input, function (res, err) {
+    if (err) {
+      session.send('I have a headache ...');
+    } else {
+      var intent = res.intent();
+
+      if (intent && INTENTS[intent]) {
+        INTENTS[intent](res)
+          .then(function (res) { session.send(res) })
+          .catch(function (res) { session.send(res) });
+      } else {
+        session.send('I could not understand you. Could you repeat it?');
       }
     }
   })
