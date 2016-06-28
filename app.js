@@ -4,7 +4,7 @@ var http = require('superagent');
 var recast = require('recastai')
 
 // init Microsoft bot connector.catch
-var bot = new builder.BotConnectorBot({ appId: process.env.BOTCONNECTOR_APPID, appSecret: process.env.BOTCONNECTOR_APPSECRET });
+var bot = new builder.BotConnectorBot({ appId: process.env.BOTCONNECTOR_APPID, appSecret: process.env.BOTCONNECTOR_SECRET });
 // process.env.BOTCONNECTOR_APPID
 
 // Require all my intents file
@@ -46,6 +46,7 @@ bot.add('/', function (session) {
     }
   })
 });
+
 bot.add('/pizza/topping', function (session) {
 
   var input = session.message.text.toString().replace(/\0/g, '');
