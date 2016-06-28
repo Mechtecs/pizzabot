@@ -1,20 +1,18 @@
 function size(response) {
-    var location = null;
-    var datetime = null;
-    var duration = null;
 
     result = response.sentence();
-    location = response.get('location');
+    size = response.get('size');
 
-    if (location) {
+    if (size && (size.raw == '22 cm' || size.raw == '26 cm' || size.raw == '38 cm')) {
       return new Promise(function (resolve, reject) {
-          resolve('Sie wollen eine Waffenbesitzkarte in ' + location.raw + ' beantragen. Sekunde, ich schaue nach der zuständigen Stelle.');
+        resolve('Ok your pizza will be ' + size.raw + ' wide. What do you want on your pizza? Like salami or cheese.')
       });
     } else {
       return new Promise(function (resolve, reject) {
-          reject('Entschuldigung, mir fehlt der Ort zu Ihrer Frage, um eine eindeutige Zuständigkeit ermitteln zu können!');
+          reject('We dont offer that! Please choose between 22, 26 and 38 cm!');
       });
     }
+
 }
 
 module.exports = size;
