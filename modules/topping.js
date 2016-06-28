@@ -3,7 +3,7 @@ function topping(response) {
     var topping = null;
 
     result = response.sentence();
-    topping = response.get('object');
+    topping = response.get('topping');
     console.log(topping.raw);
     if (topping) {
       return new Promise(function (resolve, reject) {
