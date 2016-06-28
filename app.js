@@ -38,6 +38,9 @@ bot.add('/', function (session) {
           .then(function (res) {
             session.send(res);
             session.beginDialog('/pizza/size');
+            session.beginDialog('/pizza/topping');
+            session.beginDialog('/pizza/time');
+            session.beginDialog('/pizza/location');
           })
           .catch(function (res) { session.send(res) });
       } else {
@@ -77,9 +80,12 @@ bot.add('/pizza/size', function (session) {
     } else {
       var intent = res.intent();
 
-      if (intent && INTENTS[intent]) {
-        INTENTS[intent](res)
-          .then(function (res) { session.send(res) })
+      if (intent == 'size') {
+        Isize(res, session)
+          .then(function (res) {
+            console.log("got the size");
+            session.send(res);
+          })
           .catch(function (res) { session.send(res) });
       } else {
         session.send('I could not understand you. Could you repeat it?');

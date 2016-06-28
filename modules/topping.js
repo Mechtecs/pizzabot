@@ -1,12 +1,11 @@
 function topping(response) {
-    var location = null;
-    var datetime = null;
-    var duration = null;
+
+    var topping = null;
 
     result = response.sentence();
-    location = response.get('location');
-
-    if (location) {
+    topping = response.get('object');
+    console.log(topping.raw);
+    if (topping) {
       return new Promise(function (resolve, reject) {
           resolve('Sie wollen eine Waffenbesitzkarte in ' + location.raw + ' beantragen. Sekunde, ich schaue nach der zuständigen Stelle.');
       });
