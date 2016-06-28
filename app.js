@@ -85,6 +85,7 @@ bot.add('/pizza/size', function (session) {
           .then(function (res) {
             console.log("got the size");
             session.send(res);
+            session.endDialog();
           })
           .catch(function (res) { session.send(res) });
       } else {
