@@ -38,9 +38,6 @@ bot.add('/', function (session) {
           .then(function (res) {
             session.send(res);
             session.beginDialog('/pizza/size');
-            session.beginDialog('/pizza/topping');
-            session.beginDialog('/pizza/time');
-            session.beginDialog('/pizza/location');
           })
           .catch(function (res) { session.send(res) });
       } else {
@@ -85,7 +82,7 @@ bot.add('/pizza/size', function (session) {
           .then(function (res) {
             console.log("got the size");
             session.send(res);
-            session.endDialog();
+            session.beginDialog('/pizza/topping');
           })
           .catch(function (res) { session.send(res) });
       } else {
