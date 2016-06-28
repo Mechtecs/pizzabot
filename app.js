@@ -32,7 +32,7 @@ bot.add('/', function (session) {
       session.send('I have a headache ...');
     } else {
       var intent = res.intent();
-
+      console.log(intent);
       if (intent == Iorder_food) {
         Iorder_food(res)
           .then(function (res) {
