@@ -57,9 +57,11 @@ bot.add('/pizza/topping', function (session) {
     } else {
       var intent = res.intent();
 
-      if (intent && INTENTS[intent]) {
-        INTENTS[intent](res)
-          .then(function (res) { session.send(res) })
+      if (intent == 'topping') {
+        Itopping(res. sessin)
+          .then(function (res) {
+            session.send(res);
+           })
           .catch(function (res) { session.send(res) });
       } else {
         session.send('I could not understand you. What do you want on your pizza?');
