@@ -3,7 +3,7 @@ function topping(response, ses) {
     var topping = null;
 
     result = response.sentence();
-    topping = response.get('topping');
+    topping = response.all('topping');
     console.log(topping.raw);
 
     if (topping) {
