@@ -4,7 +4,7 @@ function topping(response, ses) {
 
     result = response.sentence();
     topping = response.all('topping');
-    console.log(topping.raw);
+    console.log(topping);
 
     if (topping) {
       return new Promise(function (resolve, reject) {

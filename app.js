@@ -36,7 +36,7 @@ bot.add('/', function (session) {
       if (intent == 'order_food') {
         Iorder_food(res)
           .then(function (res) {
-            session.send(res);
+            session.send(res, 'de');
             session.beginDialog('/pizza/size');
           })
           .catch(function (res) { session.send(res) });
