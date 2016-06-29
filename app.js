@@ -60,7 +60,7 @@ bot.add('/pizza/topping', function (session) {
       if (intent == 'topping') {
         Itopping(res, session)
           .then(function (res) {
-            session.send(res);
+            session.send(res, 'de');
            })
           .catch(function (res) { session.send(res) });
       } else {
