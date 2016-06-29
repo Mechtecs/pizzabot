@@ -58,7 +58,7 @@ bot.add('/pizza/topping', function (session) {
       var intent = res.intent();
 
       if (intent == 'topping') {
-        Itopping(res. sessin)
+        Itopping(res, session)
           .then(function (res) {
             session.send(res);
            })
