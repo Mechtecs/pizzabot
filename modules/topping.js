@@ -5,9 +5,10 @@ function topping(response, ses) {
     result = response.sentence();
     topping = response.get('topping');
     console.log(topping.raw);
+
     if (topping) {
       return new Promise(function (resolve, reject) {
-          resolve('Sie wollen eine Waffenbesitzkarte in ' + location.raw + ' beantragen. Sekunde, ich schaue nach der zuständigen Stelle.');
+          resolve('Sie wollen eine Waffenbesitzkarte in PIZZA beantragen. Sekunde, ich schaue nach der zuständigen Stelle.');
       });
     } else {
       return new Promise(function (resolve, reject) {
