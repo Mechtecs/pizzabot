@@ -3,19 +3,25 @@ function topping(response, ses) {
     var topping = null;
 
     result = response.sentence();
-    console.log(result);
     topping = response.all('topping');
-    console.log(topping);
+    toppings = " ";
+
     for(var i = 0; i < topping.length; i++){
-      console.log(topping[i].raw);
+      if(i == 0)
+        toppings += topping[i].raw;
+      else
+        toppings += ", "+topping[i].raw;
     }
+
+    ses.userData.toppings = toppings;
+
     if (topping) {
       return new Promise(function (resolve, reject) {
-          resolve('Sie wollen eine Waffenbesitzkarte in PIZZA beantragen. Sekunde, ich schaue nach der zuständigen Stelle.');
+          resolve('Ok, we will put the following toppings on your pizza: ' + toppings);
       });
     } else {
       return new Promise(function (resolve, reject) {
-          reject('Entschuldigung, mir fehlt der Ort zu Ihrer Frage, um eine eindeutige Zuständigkeit ermitteln zu können!');
+          reject('Sorry, but we dont offer that!');
       });
     }
 }

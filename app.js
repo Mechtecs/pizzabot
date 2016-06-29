@@ -36,7 +36,7 @@ bot.add('/', function (session) {
       if (intent == 'order_food') {
         Iorder_food(res)
           .then(function (res) {
-            session.send(res);
+            session.send(res, 'en');
             session.beginDialog('/pizza/size');
           })
           .catch(function (res) { session.send(res) });
@@ -60,7 +60,8 @@ bot.add('/pizza/topping', function (session) {
       if (intent == 'topping') {
         Itopping(res, session)
           .then(function (res) {
-            session.send(res);
+            session.send(res, 'en');
+            consle.log(session.userData);
             session.endDialog();
            })
           .catch(function (res) { session.send(res) });
@@ -83,7 +84,6 @@ bot.add('/pizza/size', function (session) {
       if (intent == 'size') {
         Isize(res, session)
           .then(function (res) {
-            console.log("got the size");
             session.send(res);
             session.beginDialog('/pizza/topping');
           })
