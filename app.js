@@ -65,8 +65,14 @@ bot.add('/pizza/topping', function (session) {
             session.endDialog();
            })
           .catch(function (res) {
-            console.log("catching!");
-            session.send(res)
+            if(session.userData.toppings){
+              console.log("catching with data!");
+              console.log(session.userData);
+              session.endDialog();
+            }else{
+              console.log("catching!");
+              session.send(res);
+            }
           });
       } else {
         session.send('I could not understand you. What do you want on your pizza?');
