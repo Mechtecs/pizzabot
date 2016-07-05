@@ -67,7 +67,7 @@ bot.add('/pizza/topping', function (session) {
           .catch(function (res) {
             if(session.userData.toppings){
               console.log("catching with data!");
-              console.log(session.userData);
+              console.log(session.userData.toppings[0]);
               session.endDialog();
             }else{
               console.log("catching!");
