@@ -17,10 +17,12 @@ function topping(response, ses) {
 
     if (topping) {
       return new Promise(function (resolve, reject) {
+          console.log('resolving');
           resolve('Ok, we will put the following toppings on your pizza: ' + toppings);
       });
     } else {
       return new Promise(function (resolve, reject) {
+          console.log('rejecting');
           reject('Sorry, but we dont offer that!');
       });
     }
